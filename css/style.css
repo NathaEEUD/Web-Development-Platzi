@@ -86,6 +86,8 @@ h1 {
   letter-spacing: -.2px;
   color: white;
   margin: 0;
+  /* background: rgba(0, 0, 0, 0.5); */
+  text-shadow: 1px 2px 2px #000;
 }
 h1 strong {
   color: #026fff;
@@ -110,7 +112,6 @@ h2 {
 .project {
   /* border: 1px solid gray; */
   border-radius: 10px;
-  /* margin: 10px; */
   margin-bottom: 15px;
   padding: 20px;
   background-color: white;
@@ -120,22 +121,36 @@ h2 {
   box-shadow: 3px 5px 33px #888888;
   flex-wrap: wrap;
 }
-/* .project-details, .project-image-container {
-  width: 500px;
-} */
+.project-details, .project-image-container {
+  width: 50%;
+  font-size: 20px;
+}
 .project-title {
-  font-size: 30px;
+  /* font-size: 30px; */
+  font-size: 1.5em;
   margin-top: 0;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
+  margin-bottom: calc(1em / 3);
+}
+.project-course {
+  font-size: 0.7em;
+}
+.project-date, .project-url {
+  font-size: 1em;
 }
 .project-course, .project-date, .project-url {
-  margin: 10px 0;
+  /* margin: 10px 0; */
+  margin: 0.5em 0;
 }
 .project-description {
-  font-size: 20px;
+  /* font-size: 20px; */
+  font-size: 1em;
 }
 .project strong {
   font-family: 'Fjalla One', sans-serif;
+}
+.project-image-container img {
+  max-width: 100%;
 }
 
 .event-list {
@@ -147,8 +162,10 @@ h2 {
   margin-left: 20px;
 }
 .event {
-  margin: 10px;
-  width: 480px;
+  /* margin: 10px;
+  width: 480px; */
+  margin: 1%;
+  width: 48%;
   border-radius: 10px;
   overflow: hidden;
   background-color: #f4fbff;
@@ -189,6 +206,7 @@ h2 {
 }
 .form-email h3 {
   font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
 }
 .form-email input {
   border-color: gray;
@@ -249,7 +267,30 @@ h2 {
 
 /* Desktop First */
 @media screen and (max-width: 1024px) {
+  .container {
+    padding: 0 1em;
+  }
 
+  .hero {
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    padding: 2em;
+  }
+  h1 {
+    font-size: 2em;
+    z-index: 2;
+  }
+  .hero-image {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    object-position: center 25%;
+  }
 }
 
 @media screen and (max-width: 767.98px) {
@@ -276,12 +317,88 @@ h2 {
   .header .menu ol li {
     margin: 15px 0;
   }
+
+  .project {
+    display: block;
+  }
+  .project-details, .project-image-container {
+    width: auto;
+  }
+  .project-details {
+    font-size: 16px;
+  }
+  .project-course {
+    font-size: 0.7em;
+  }
+  .project-date, .project-url {
+    font-size: 1em;
+  }
+  /* .project-description {
+    font-size: 0.8em;
+  } */
+  .project-image-container {
+    text-align: center;
+  }
+
+  .event {
+    width: auto;
+  }
+  .event img {
+    width: 100%;
+    height: 20em;
+  }
 }
 
 @media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
   
+  .project-details {
+    font-size: 12px;
+  }
+
+  .event img {
+    height: 14em;
+  }
+  .event-detail {
+    margin: -2em 1em 1em;
+    padding: 1em;
+  }
+
+  .contact {
+    height: auto;
+    padding: 1.5em 0;
+    display: block;
+    text-align: center;
+  }
+  .contact .form-email h3 {
+    margin-top: 0;
+  }
+  .contact .form-email button {
+    margin: 1em auto;
+  }
+
+  .footer {
+    display: block;
+    text-align: center;
+    border: 1px solid transparent;
+  }
 }
 
 @media screen and (max-width: 320px) {
+  .hero {
+    padding: 2em 1em;
+  }
+  h1 {
+    font-size: 1.2em;
+  }
   
+  .event img {
+    height: 10em;
+  }
+  .event-detail {
+    margin: -1.5em .5em .5em;
+    padding: .8em;
+  }
 }
