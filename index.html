@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <i class="icon-menu burger-button"></i>
+    <i id="burger-menu" class="icon-menu burger-button"></i>
     <header class="header">
       <div class="container">
         <figure class="logo">
           <img src="images/logo.png" height="50px" alt="Logo">
         </figure>
-        <nav class="menu is-active">
+        <nav class="menu">
           <ol>
             <li>
               <a class="link" href="#portafolio">Portafolio</a>
@@ -150,5 +150,37 @@
         </div>
       </div>
     </footer>
+    <script>
+      const menu = document.querySelector('.menu');
+      console.log(menu);
+      const burgerButton = document.querySelector('#burger-menu');
+      console.log(burgerButton);
+      
+      const ipad = window.matchMedia('screen and (max-width:767.98px');
+      
+      ipad.addListener(validation);
+
+      function validation(event) {
+        console.log(event.matches);
+        if (event.matches) {
+          burgerButton.addEventListener('click', () => menu.classList.toggle('is-active'));
+          menu.addEventListener('click', () => menu.classList.remove('is-active'));
+        } else {
+          burgerButton.removeEventListener('click', () => menu.classList.toggle('is-active'));
+          menu.removeEventListener('click', () => menu.classList.remove('is-active'));
+        }
+      }
+
+      validation(ipad);
+
+      // function hideShow() {
+      //   if(menu.classList.contains('is-active')) {
+      //     menu.classList.remove('is-active');
+      //   } else {
+      //     menu.classList.add('is-active');
+      //   }
+      // }
+
+    </script>
   </body>
 </html>
